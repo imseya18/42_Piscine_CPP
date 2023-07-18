@@ -6,7 +6,7 @@
 /*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:41:25 by mmorue            #+#    #+#             */
-/*   Updated: 2023/07/18 23:19:09 by seya             ###   ########.fr       */
+/*   Updated: 2023/07/19 01:39:49 by seya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	for (;argv[i]; i++)
 	{
 		for (int j = 0; argv[i][j]; j++)
-			std::putchar(std::toupper(argv[i][j]));
+			putchar(toupper(argv[i][j]));
 	}
 	std::cout << std::endl;
 	return (0);

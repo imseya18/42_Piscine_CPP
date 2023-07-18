@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:41:25 by mmorue            #+#    #+#             */
-/*   Updated: 2023/07/18 17:06:04 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/07/19 01:53:23 by seya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,17 @@ int main(void)
 
 	while (cmd != "EXIT")
 	{
-		std::cout << "waiting for a command :";
-		std::getline(std::cin, cmd);
-		//std:: cout << std::endl;
-	}
+		std::cout << "waiting for a command: ";
+		getline(std::cin, cmd);
+		if (std::cin.eof())
+			return (0);
+		std:: cout << std::endl;
+		if (cmd == "ADD")
+		{
+			std::cout << "COUCOU" << std::endl;
+		}
+		if (cmd == "SEARCH")
+			std::cout << "OK" << std::endl;
+	}	
 	return (0);
 }
