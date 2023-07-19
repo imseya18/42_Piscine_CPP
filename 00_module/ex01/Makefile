@@ -1,6 +1,7 @@
 NAME = phonebook
 
-SOURCES =  phonebook.cpp\
+SOURCES =  	phonebook.cpp\
+			Contact.cpp
 						
 
 OBJECTS = $(SOURCES:.cpp=.o)

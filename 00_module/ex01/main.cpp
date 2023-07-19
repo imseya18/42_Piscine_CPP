@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:41:25 by mmorue            #+#    #+#             */
-/*   Updated: 2023/07/19 15:02:44 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/07/19 16:49:54 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdio>
+#include "Contact.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	int i;
-
-	i = 1;
-	if (argc < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
+	std::string	cmd;
+	Contact  contact[8];
 	
-	for (;argv[i]; i++)
+	while (cmd != "EXIT")
 	{
-		for (int j = 0; argv[i][j]; j++)
-			putchar(toupper(argv[i][j]));
+		std::cout << "waiting for a command: ";
+		getline(std::cin, cmd);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return (0);
+		}
+		else if (cmd == "ADD")
+			std::cout << "COUCOU" << std::endl;
+		else if (cmd == "SEARCH")
+			std::cout << "OK" << std::endl;
+		else 
+			std::cout << "this command doesn't exist" << std::endl;
 	}
-	std::cout << std::endl;
 	return (0);
 }
