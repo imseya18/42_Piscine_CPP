@@ -4,14 +4,16 @@
 #pragma once
 
 #include "Contact.hpp"
+
 class PhoneBook
 {
 	public:
 		PhoneBook();
 		~PhoneBook();
-
+		void add_contact();
 	private:
 		Contact contact[8];
+		int size;
 };
 
 #endif
