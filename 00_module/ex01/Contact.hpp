@@ -5,6 +5,7 @@
 
 #include <string>
 #include <iostream>
+#include <ctype.h>
 
 class Contact
 {
@@ -13,14 +14,16 @@ class Contact
 		~Contact();
 		void set_name();
 		void get_input(std::string *input, std::string info);
-
+		void display_name();
+		int	check_if_empty();
 	private:
 		std::string _first_name;
 		std::string _last_name;
 		std::string _nickname;
 		std::string _phone_number;
 		std::string _darkest_secret;
-		void trim_space(std::string *string);
+		void 		trim_space(std::string *string);
+		int			check_number(std::string *string);
 };
 
 #endif

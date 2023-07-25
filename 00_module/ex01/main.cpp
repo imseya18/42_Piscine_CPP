@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 14:41:25 by mmorue            #+#    #+#             */
-/*   Updated: 2023/07/20 18:18:14 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/07/25 16:33:35 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void)
 		else if (cmd == "ADD")
 			phonebook.add_contact();
 		else if (cmd == "SEARCH")
-			std::cout << "OK" << std::endl;
+			phonebook.display_contact();
 		else 
 			std::cout << "this command doesn't exist" << std::endl;
 	}

@@ -11,6 +11,7 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 		void add_contact();
+		void display_contact();
 	private:
 		Contact contact[8];
 		int size;

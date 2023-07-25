@@ -17,15 +17,16 @@ void Contact::set_name()
 	get_input(&(this->_nickname), "NICKNAME: ");
 	get_input(&(this->_phone_number), "PHONE NUMBER: ");   //finir check only chiffres
 	get_input(&(this->_darkest_secret), "DARKEST SECRET: ");
-	std::cout << _first_name << std::endl;
-	std::cout << _last_name << std::endl;
-	std::cout << _nickname << std::endl;
-	std::cout << _phone_number << std::endl;
-	std::cout << _darkest_secret << std::endl;
+	//std::cout << _first_name << std::endl;
+	//std::cout << _last_name << std::endl;
+	//std::cout << _nickname << std::endl;
+	//std::cout << _phone_number << std::endl;
+	//std::cout << _darkest_secret << std::endl;
 }
 
 void Contact::get_input(std::string *input, std::string info)
 {
+
 	while((*input).empty() || (*input).length() == 0)
 	{
 		std::cout << info;
@@ -36,9 +37,41 @@ void Contact::get_input(std::string *input, std::string info)
 			exit (0);
 		}
 		trim_space(input);
-		//if (info == "PHONE NUMBER: ")  //check only chiffre;
+		if (info == "PHONE NUMBER: ") //check only chiffre;
+			check_number(input);			
 	}
 
+}
+
+int	Contact::check_number(std::string *string)
+{
+	for(size_t i = 0; i < string->length(); i++)
+	{
+		if (std::isdigit((*string)[i]) == false)
+		{
+			(*string).clear();
+			std::cout << "only numbers are allowed" <<  std::endl;
+			return (false);
+		}
+	}
+	return (true);
+}
+
+int	Contact::check_if_empty()
+{
+	if (this->_first_name.empty() == true)
+		return(true);
+	else
+		return(false);
+}
+
+void Contact::display_name()
+{
+	std::cout << _first_name << std::endl;
+	std::cout << _last_name << std::endl;
+	std::cout << _nickname << std::endl;
+	std::cout << _phone_number << std::endl;
+	std::cout << _darkest_secret << std::endl;
 }
 
 void Contact::trim_space(std::string *string)
