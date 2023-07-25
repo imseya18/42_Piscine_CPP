@@ -12,35 +12,31 @@ Contact::~Contact()
 
 void Contact::set_name()
 {
-	get_input(&(this->_first_name), "FIRST NAME: ");
-	get_input(&(this->_last_name), "LAST NAME: ");
-	get_input(&(this->_nickname), "NICKNAME: ");
-	get_input(&(this->_phone_number), "PHONE NUMBER: ");   //finir check only chiffres
-	get_input(&(this->_darkest_secret), "DARKEST SECRET: ");
-	//std::cout << _first_name << std::endl;
-	//std::cout << _last_name << std::endl;
-	//std::cout << _nickname << std::endl;
-	//std::cout << _phone_number << std::endl;
-	//std::cout << _darkest_secret << std::endl;
+	this->_first_name = get_input("FIRST NAME: ");
+	this->_last_name = get_input("LAST NAME: ");
+	this->_nickname = get_input("NICKNAME: ");
+	this->_phone_number = get_input("PHONE NUMBER: ");
+	this->_darkest_secret = get_input("DARKEST SECRET: ");
 }
 
-void Contact::get_input(std::string *input, std::string info)
+std::string Contact::get_input(std::string info)
 {
+	std::string input;
 
-	while((*input).empty() || (*input).length() == 0)
+	while(input.empty() || input.length() == 0)
 	{
 		std::cout << info;
-		getline(std::cin, *input);
+		getline(std::cin, input);
 		if (std::cin.eof())
 		{
 			std::cout << std::endl;
 			exit (0);
 		}
-		trim_space(input);
-		if (info == "PHONE NUMBER: ") //check only chiffre;
-			check_number(input);			
+		trim_space(&input);
+		if (info == "PHONE NUMBER: ")
+			check_number(&input);			
 	}
-
+	return	(input);
 }
 
 int	Contact::check_number(std::string *string)

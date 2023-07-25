@@ -12,10 +12,10 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void set_name();
-		void get_input(std::string *input, std::string info);
-		void display_name();
-		int	check_if_empty();
+		void 		set_name();
+		std::string get_input(std::string info);
+		void 		display_name();
+		int			check_if_empty();
 	private:
 		std::string _first_name;
 		std::string _last_name;
