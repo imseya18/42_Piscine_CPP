@@ -19,6 +19,7 @@ class Contact
 		void 		display_name();
 		int			check_if_empty();
 		void 		print_info(int index);
+		//void		get_index();
 	private:
 
 		std::string _first_name;

@@ -22,6 +22,49 @@ void PhoneBook::display_contact()
 			break;
 		this->contact[i].print_info(i);
 	}
+	get_index();
+}
+
+void	PhoneBook::get_index()
+{
+	int index;
+	std::string input;
+
+	while(input.empty() || input.length() == 0)
+	{
+		std::cout << "Enter index: ";
+		getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit (0);
+		}
+		check_number(&input);
+		index = stoi(input);
+		if (index > 9)
+		{
+			input.clear();
+			std::cout << "index must be 0 and 7" << std::endl;
+		}
+	}
+	if (this->contact[index].check_if_empty() == true)
+		std::cout << "no info for this index" << std::endl;
+	else
+		this->contact[index].display_name();
+}
+
+int		PhoneBook::check_number(std::string *string)
+{
+	for(size_t i = 0; i < string->length(); i++)
+	{
+		if (std::isdigit((*string)[i]) == false)
+		{
+			(*string).clear();
+			std::cout << "only numbers are allowed" <<  std::endl;
+			return (false);
+		}
+	}
+	return (true);
 }
 
 void PhoneBook::add_contact()

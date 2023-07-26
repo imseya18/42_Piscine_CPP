@@ -10,7 +10,7 @@ Contact::~Contact()
 
 }
 
-void Contact::set_name()
+void	Contact::set_name()
 {
 	this->_first_name = get_input("FIRST NAME: ");
 	this->_last_name = get_input("LAST NAME: ");
@@ -19,7 +19,7 @@ void Contact::set_name()
 	this->_darkest_secret = get_input("DARKEST SECRET: ");
 }
 
-void Contact::print_info(int index)  //print info for SEARCH command
+void	Contact::print_info(int index)  //print info for SEARCH command
 {
 	int i = index;
 	std::string first_name;
@@ -44,7 +44,7 @@ void Contact::print_info(int index)  //print info for SEARCH command
 						<< std::endl;
 }
 
-std::string Contact::format_for_book(std::string string) //format for SEARCH command
+std::string	Contact::format_for_book(std::string string) //format for SEARCH command
 {
 	if (string.length() > 10)
 	{
@@ -96,13 +96,13 @@ int	Contact::check_if_empty()
 		return(false);
 }
 
-void Contact::display_name()
+void	Contact::display_name()
 {
-	std::cout << _first_name << std::endl;
-	std::cout << _last_name << std::endl;
-	std::cout << _nickname << std::endl;
-	std::cout << _phone_number << std::endl;
-	std::cout << _darkest_secret << std::endl;
+	std::cout << "FIRST NAME: "<< _first_name << std::endl;
+	std::cout << "LAST NAME: "<< _last_name << std::endl;
+	std::cout << "NICKNAME: "<< _nickname << std::endl;
+	std::cout << "PHONE NUMBER: "<< _phone_number << std::endl;
+	std::cout << "SECRET: "<< _darkest_secret << std::endl;
 }
 
 void Contact::trim_space(std::string *string)
