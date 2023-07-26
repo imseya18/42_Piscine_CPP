@@ -19,6 +19,41 @@ void Contact::set_name()
 	this->_darkest_secret = get_input("DARKEST SECRET: ");
 }
 
+void Contact::print_info(int index)  //print info for SEARCH command
+{
+	int i = index;
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+
+	first_name = format_for_book(this->_first_name);
+	last_name = format_for_book(this->_last_name);
+	nickname = format_for_book(this->_nickname);
+	std::cout <<"|" <<	std::setw(10) 
+						<<	i 
+						<<	"|"
+						<<	std::setw(10)
+						<<	first_name
+						<< 	"|"
+						<<	std::setw(10)
+						<<	last_name
+						<<	"|"
+						<<	std::setw(10)
+						<<	nickname
+						<<	"|"
+						<< std::endl;
+}
+
+std::string Contact::format_for_book(std::string string) //format for SEARCH command
+{
+	if (string.length() > 10)
+	{
+		string = string.substr(0,9);
+		string += '.';
+	}
+	return(string);
+}
+
 std::string Contact::get_input(std::string info)
 {
 	std::string input;

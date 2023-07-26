@@ -6,17 +6,21 @@
 #include <string>
 #include <iostream>
 #include <ctype.h>
+#include <iomanip>
 
 class Contact
 {
 	public:
+
 		Contact();
 		~Contact();
 		void 		set_name();
 		std::string get_input(std::string info);
 		void 		display_name();
 		int			check_if_empty();
+		void 		print_info(int index);
 	private:
+
 		std::string _first_name;
 		std::string _last_name;
 		std::string _nickname;
@@ -24,6 +28,7 @@ class Contact
 		std::string _darkest_secret;
 		void 		trim_space(std::string *string);
 		int			check_number(std::string *string);
+		std::string format_for_book(std::string string);
 };
 
 #endif
