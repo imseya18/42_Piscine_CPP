@@ -39,12 +39,14 @@ void	PhoneBook::get_index()
 			std::cout << std::endl;
 			exit (0);
 		}
-		check_number(&input);
-		index = stoi(input);
-		if (index > 9)
+		if (check_number(&input) == true)
 		{
-			input.clear();
-			std::cout << "index must be 0 and 7" << std::endl;
+			index = stoi(input);
+			if (index > 9)
+			{
+				input.clear();
+				std::cout << "index must be between 0 and 7" << std::endl;
+			}
 		}
 	}
 	if (this->contact[index].check_if_empty() == true)
