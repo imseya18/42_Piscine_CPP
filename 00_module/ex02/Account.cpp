@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <iomanip>
+#include <sstream>
 
 Account::Account( int initial_deposit ) : _amount(initial_deposit)
 {
@@ -65,5 +66,14 @@ void	Account::displayAccountsInfos(void)
 void	_displayTimestamp(void)
 {
 	std::time_t t = std::time(nullptr);
-    std::cout << std::put_time(std::localtime(&t), "[%Y%m%d_%H%M%S]") << std::endl;
+    std::tm tm = *std::localtime(&t);
+    std::ostringstream time;
+    time << std::put_time(&tm, "[%Y%m%d_%H%M%S]"); //stock et formate le timestamp dans la string
+    if (!time) 
+	{
+        std::cout << "Failed on formating timestamp." << std::endl;
+        return ;
+    }
+    std::cout << time.str() << std::endl;
+	return ;
 }
