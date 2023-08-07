@@ -10,7 +10,8 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit)
 
 	this->_accountIndex = i;
 	_displayTimestamp();
-	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
+	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
+	i++;
 }
 
 Account::~Account( void )
@@ -63,7 +64,7 @@ void	Account::displayAccountsInfos(void)
 
 }
 
-void	_displayTimestamp(void)
+void	Account::_displayTimestamp(void)
 {
 	std::time_t t = std::time(nullptr);
     std::tm tm = *std::localtime(&t);
@@ -74,6 +75,6 @@ void	_displayTimestamp(void)
         std::cout << "Failed on formating timestamp." << std::endl;
         return ;
     }
-    std::cout << time.str() << std::endl;
+    std::cout << time.str();
 	return ;
 }

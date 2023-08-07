@@ -1,7 +1,7 @@
 NAME = journal
 
 SOURCES =  	Account.cpp\
-			test.cpp\
+			tests.cpp\
 						
 
 OBJECTS = $(SOURCES:.cpp=.o)
