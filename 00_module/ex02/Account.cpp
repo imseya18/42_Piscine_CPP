@@ -6,7 +6,7 @@
 
 Account::Account( int initial_deposit ) : _amount(initial_deposit)
 {
-	static int i;
+	static int i = 0;
 
 	this->_accountIndex = i;
 	_displayTimestamp();
@@ -16,7 +16,8 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit)
 
 Account::~Account( void )
 {
-
+	_displayTimestamp();
+	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
 }
 
 void	Account::makeDeposit(int deposit)

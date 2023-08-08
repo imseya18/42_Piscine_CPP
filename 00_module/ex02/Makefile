@@ -17,6 +17,8 @@ $(NAME): $(SOURCES) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS) $(OBJECTS_BONUS)
+
 fclean: clean
 	rm -f $(NAME)
+
 re: fclean $(NAME)
