@@ -67,15 +67,29 @@ void	Account::displayAccountsInfos(void)
 
 void	Account::_displayTimestamp(void)
 {
-	std::time_t t = std::time(nullptr);
+	//std::time_t t = std::time(0);
+    //std::tm tm = *std::localtime(&t);
+    //std::ostringstream time;
+    //time << std::put_time(&tm, "[%Y%m%d_%H%M%S]"); //stock et formate le timestamp dans la string
+    //if (!time) 
+	//{
+    //    std::cout << "Failed on formating timestamp." << std::endl;
+    //    return ;
+    //}
+    //std::cout << time.str();
+	std::time_t t = std::time(0);
     std::tm tm = *std::localtime(&t);
-    std::ostringstream time;
-    time << std::put_time(&tm, "[%Y%m%d_%H%M%S]"); //stock et formate le timestamp dans la string
-    if (!time) 
-	{
-        std::cout << "Failed on formating timestamp." << std::endl;
-        return ;
-    }
-    std::cout << time.str();
+
+    std::ostringstream oss;
+    oss << "["
+		<< (tm.tm_year + 1900)
+        << std::setw(2) << std::setfill('0') << (tm.tm_mon + 1)
+        << std::setw(2) << std::setfill('0') << tm.tm_mday
+        << "_"
+        << std::setw(2) << std::setfill('0') << tm.tm_hour
+        << std::setw(2) << std::setfill('0') << tm.tm_min
+        << std::setw(2) << std::setfill('0') << tm.tm_sec
+		<< "]";
+	std::cout << oss.str();
 	return ;
 }
