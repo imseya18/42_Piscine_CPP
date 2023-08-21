@@ -1,10 +1,7 @@
-NAME = phonebook
+NAME = zombie
 
-SOURCES =  	PhoneBook.cpp\
-			Contact.cpp\
-			main.cpp\
-						
-
+SOURCES =  	main.cpp\
+	
 OBJECTS = $(SOURCES:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
@@ -18,6 +15,8 @@ $(NAME): $(SOURCES) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS) $(OBJECTS_BONUS)
+
 fclean: clean
 	rm -f $(NAME)
+
 re: fclean $(NAME)
