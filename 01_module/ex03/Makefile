@@ -1,6 +1,9 @@
 NAME = zombie
 
 SOURCES =  	main.cpp\
+			HumanA.cpp\
+			HumanB.cpp\
+			Weapon.cpp\
 	
 OBJECTS = $(SOURCES:.cpp=.o)
 
@@ -10,7 +13,7 @@ CXX = c++ $(FLAGS)
 
 all: $(NAME)
 
-$(NAME): $(SOURCES) $(OBJECTS) 
+$(NAME): $(SOURCES) $(OBJECTS)
 	@$(CXX) $(OBJECTS) -o $(NAME)
 
 clean:
