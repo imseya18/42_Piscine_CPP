@@ -13,7 +13,6 @@ class Weapon
     	~Weapon();
 		std::string	const	&getType() const;
 		void				setType(std::string weapon);
-
 	private:
 		std::string	_type;
 };
