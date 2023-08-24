@@ -1,8 +1,8 @@
-#include <string>
-#include <iostream>
 #include "inputFile.hpp"
+#include "outfile.hpp"
 #include <cstring>
-std::string	search_and_replace(std::string	str, char *search, char	*replace)
+
+std::string search_and_replace(std::string str, char *search, char *replace)
 {
 	int search_size;
 	int replace_size;
@@ -11,35 +11,41 @@ std::string	search_and_replace(std::string	str, char *search, char	*replace)
 	search_size = std::strlen(search);
 	replace_size = std::strlen(replace);
 	pos = 0;
-	while((pos = str.find(search, pos)) != std::string::npos)
+	while ((pos = str.find(search, pos)) != std::string::npos)
 	{
 		str.erase(pos, search_size);
 		str.insert(pos, replace);
 		pos += replace_size;
 	}
-	return(str);
+	return (str);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
 		std::cout << "wrong number of argument" << std::endl;
 		return 0;
 	}
-	else
-	{
-		inputFile	i_file(argv[1]);
-		std::string	temp_file;
+		InputFile in_file(argv[1]);
+		std::string temp_file;
+		std::string out_file_name(argv[1]);
 
-		if(i_file.check_valide_file() == false)
+		out_file_name += ".replace";
+		if (in_file.check_valide_file() == false)				//check open in file reussi
 		{
 			std::cout << "ERROR: Cannot open file" << std::endl;
 			return 0;
 		}
-		temp_file = i_file.to_string();
+		Outfile	out_file(out_file_name);
+		if	(out_file.check_valide_file() == false)				//check creation + open out file reussi
+		{
+			std::cout << "ERROR: Cannot open file" << std::endl;
+			return 0;
+		}
+		temp_file = in_file.to_string();
 		temp_file = search_and_replace(temp_file, argv[2], argv[3]);
-		std::cout << temp_file << std::endl;
+		out_file.strToFile(temp_file);
 
-	}
+		return 0;
 }

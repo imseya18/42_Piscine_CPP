@@ -1,23 +1,24 @@
 #include "inputFile.hpp"
 
-inputFile::inputFile(char *file_path): _file(file_path)
+InputFile::InputFile(char *file_path): _file(file_path)
 {
 
 }
 
-inputFile::~inputFile()
+InputFile::~InputFile()
 {
-
+	if(this->_file.is_open() == true)
+		this->_file.close();
 }
 
-bool	inputFile::check_valide_file()	const
+bool	InputFile::check_valide_file()	const
 {
 	if(this->_file.is_open())
 		return true;
 	else
 		return false;
 }
-std::string	inputFile::to_string()
+std::string	InputFile::to_string()
 {
 	std::string	temp;
 	char	c;

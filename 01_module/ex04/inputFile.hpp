@@ -7,11 +7,11 @@
 #include <iostream>
 #include <fstream>
 
-class inputFile
+class InputFile
 {
     public:
-        inputFile(char *file_path);
-        ~inputFile();
+        InputFile(char *file_path);
+        ~InputFile();
 		std::string	to_string();
 		bool	check_valide_file() const;
     private:
