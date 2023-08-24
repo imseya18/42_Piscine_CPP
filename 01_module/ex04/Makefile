@@ -1,7 +1,8 @@
 NAME = replace
 
 SOURCES =  	main.cpp\
-			inputFile.cpp
+			inputFile.cpp\
+			outfile.cpp
 	
 OBJECTS = $(SOURCES:.cpp=.o)
 
