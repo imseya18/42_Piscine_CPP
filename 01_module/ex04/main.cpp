@@ -7,7 +7,8 @@ std::string search_and_replace(std::string str, char *search, char *replace)
 	int search_size;
 	int replace_size;
 	size_t pos;
-
+	if (search[0] == '\0')
+		return (str);
 	search_size = std::strlen(search);
 	replace_size = std::strlen(replace);
 	pos = 0;
