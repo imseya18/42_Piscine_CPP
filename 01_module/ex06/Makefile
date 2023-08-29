@@ -1,4 +1,4 @@
-NAME = Sed
+NAME = HarlFilter
 
 SOURCES =  	main.cpp\
 			Harl.cpp
