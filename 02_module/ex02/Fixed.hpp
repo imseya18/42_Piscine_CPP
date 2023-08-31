@@ -10,17 +10,29 @@
 class Fixed
 {
     public:
-
+	// CONSTRUCTEUR
         Fixed();
         Fixed(Fixed const & src);
 		Fixed(int const value);
 		Fixed(float const value);
+
+	// DESTRUCTEUR
         ~Fixed();
+
+	//FONCTION
 		float toFloat( void ) const;
 		int toInt( void ) const;
         int getRawBits( void ) const;
 		void setRawBits( int const raw );
-        Fixed &operator=(Fixed const & rhs);
+
+	//OPPERATEUR
+        Fixed	&operator=(Fixed const & rhs);
+		int		operator>(Fixed const & lhs, Fixed const & rhs);
+		int		operator<(Fixed const & lhs, Fixed const & rhs);
+		int		operator>=(Fixed const & lhs, Fixed const & rhs);
+		int		operator<=(Fixed const & lhs, Fixed const & rhs);
+		int		operator==(Fixed const & lhs, Fixed const & rhs);
+		int		operator!=(Fixed const & lhs, Fixed const & rhs);
 
     private:
 		int _value;

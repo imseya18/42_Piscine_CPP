@@ -41,6 +41,48 @@ Fixed &Fixed::operator=(Fixed const & rhs)
 	return *this;
 }
 
+int		Fixed::operator>(Fixed const & lhs, Fixed const & rhs)
+{
+	if(lhs.getRawBits() > rhs.getRawBits())
+		return 1;
+	return 0;
+}
+
+int		Fixed::operator<(Fixed const & lhs, Fixed const & rhs)
+{
+	if(lhs.getRawBits() < rhs.getRawBits())
+		return 1;
+	return 0;
+}
+
+int		Fixed::operator>=(Fixed const & lhs, Fixed const & rhs)
+{
+	if(lhs.getRawBits() >= rhs.getRawBits())
+		return 1;
+	return 0;
+}
+
+int		Fixed::operator<=(Fixed const & lhs, Fixed const & rhs)
+{
+	if(lhs.getRawBits() <= rhs.getRawBits())
+		return 1;
+	return 0;
+}
+
+int		Fixed::operator==(Fixed const & lhs, Fixed const & rhs)
+{
+	if(lhs.getRawBits() == rhs.getRawBits())
+		return 1;
+	return 0;
+}
+
+int		Fixed::operator!=(Fixed const & lhs, Fixed const & rhs)
+{
+	if(lhs.getRawBits() != rhs.getRawBits())
+		return 1;
+	return 0;
+}
+
 std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
 {
 	o << rhs.toFloat();
