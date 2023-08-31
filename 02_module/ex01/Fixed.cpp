@@ -15,6 +15,16 @@ Fixed::Fixed(Fixed const & src)
 	return ;
 }
 
+Fixed::Fixed(int const value)
+{
+	this->_value = value * 256;
+}
+
+Fixed::Fixed(float const value)
+{
+	this->_value = roundf(value * 256);
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -31,13 +41,28 @@ Fixed &Fixed::operator=(Fixed const & rhs)
 	return *this;
 }
 
+std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
+{
+	o << rhs.toFloat();
+	return o;
+}
+
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_value);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	this->_value = raw;
+	this->_value = raw * 256;
+}
+
+float Fixed::toFloat( void ) const
+{
+	return (float)this->getRawBits() / 256;
+}
+
+int Fixed::toInt( void ) const
+{
+	return this->getRawBits() / 256;
 }
