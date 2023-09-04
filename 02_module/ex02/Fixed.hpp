@@ -15,7 +15,7 @@ class Fixed
         Fixed(Fixed const & src);
 		Fixed(int const value);
 		Fixed(float const value);
-
+		Fixed(unsigned int lala);
 	// DESTRUCTEUR
         ~Fixed();
 
@@ -26,13 +26,25 @@ class Fixed
 		void setRawBits( int const raw );
 
 	//OPPERATEUR
-        Fixed	&operator=(Fixed const & rhs);
-		int		operator>(Fixed const & lhs, Fixed const & rhs);
-		int		operator<(Fixed const & lhs, Fixed const & rhs);
-		int		operator>=(Fixed const & lhs, Fixed const & rhs);
-		int		operator<=(Fixed const & lhs, Fixed const & rhs);
-		int		operator==(Fixed const & lhs, Fixed const & rhs);
-		int		operator!=(Fixed const & lhs, Fixed const & rhs);
+        Fixed			&operator=(Fixed const & rhs);
+		Fixed			operator+(Fixed const & rhs);
+		Fixed			operator-(Fixed const & rhs);
+		Fixed			operator/(Fixed const & rhs);
+		Fixed			operator*(Fixed const & rhs);
+		Fixed			&operator++();
+		Fixed			operator++(int);
+		Fixed			&operator--();
+		Fixed			operator--(int);
+		static Fixed	min(Fixed &a, Fixed &b);
+		static Fixed	min(Fixed const &a, Fixed const  &b);
+		static Fixed	max(Fixed &a, Fixed &b);
+		static Fixed	max(Fixed const &a, Fixed const  &b);
+		bool			operator>(Fixed const & rhs);
+		bool			operator<(Fixed const & rhs);
+		bool			operator>=(Fixed const & rhs);
+		bool			operator<=(Fixed const & rhs);
+		bool			operator==(Fixed const & rhs);
+		bool			operator!=(Fixed const & rhs);
 
     private:
 		int _value;
