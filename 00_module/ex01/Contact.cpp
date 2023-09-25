@@ -111,7 +111,7 @@ void Contact::trim_space(std::string *string)
 	int end;
 
 	start = 0;
-	end = 0;
+	end = 1;
 	for (size_t i = 0; i < (*string).length(); i++)
 	{
 		if (isspace((*string)[i]) == false)
