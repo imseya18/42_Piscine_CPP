@@ -7,6 +7,7 @@
 #include <iostream>
 #include <ctype.h>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact
 {

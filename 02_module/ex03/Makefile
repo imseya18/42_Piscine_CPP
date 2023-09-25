@@ -1,9 +1,7 @@
-NAME = phonebook
+NAME = out
 
-SOURCES =	Phonebook.cpp\
-			Contact.cpp \
-			main.cpp
-						
+SOURCES =  	main.cpp\
+			Fixed.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
@@ -13,11 +11,13 @@ CXX = c++ $(FLAGS)
 
 all: $(NAME)
 
-$(NAME): $(SOURCES) $(OBJECTS) 
+$(NAME): $(SOURCES) $(OBJECTS)
 	@$(CXX) $(OBJECTS) -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS) $(OBJECTS_BONUS)
+
 fclean: clean
 	rm -f $(NAME)
+
 re: fclean $(NAME)

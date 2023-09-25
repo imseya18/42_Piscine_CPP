@@ -41,7 +41,7 @@ void	PhoneBook::get_index()
 		}
 		if (check_number(&input) == true)
 		{
-			index = stoi(input);
+			index = atoi(input.c_str());
 			if (index > 9)
 			{
 				input.clear();
