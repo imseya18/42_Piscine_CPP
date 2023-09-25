@@ -42,7 +42,7 @@ void	PhoneBook::get_index()
 		if (check_number(&input) == true)
 		{
 			index = atoi(input.c_str());
-			if (index > 9)
+			if (index > 7)
 			{
 				input.clear();
 				std::cout << "index must be between 0 and 7" << std::endl;
