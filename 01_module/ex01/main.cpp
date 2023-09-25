@@ -2,15 +2,15 @@
 
 int main()
 {
-	Zombie *hord;
+	Zombie *horde;
 	int	N;
 
 	N = 5;
-	hord = zombieHorde(N, "joseph");
-	for(int	i =0; i < N; i++)
+	horde = zombieHorde(N, "joseph");
+	for(int	i = 0; i < N; i++)
 	{
-		hord[i].announce();
+		horde[i].announce();
 	}
-	delete [] hord;
+	delete [] horde;
 	return (0);
 }

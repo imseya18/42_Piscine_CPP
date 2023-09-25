@@ -4,5 +4,5 @@ int main(void)
 {
 	Harl test;
 
-	test.complain("WAING");
+	test.complain("WARNING");
 }

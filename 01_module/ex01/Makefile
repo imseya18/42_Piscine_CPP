@@ -6,14 +6,14 @@ SOURCES =  	main.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-CXXFLAGS = -Wall -Wextra -Werror -g -fsanitize=address -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-CCXX = c++ $(CXXFLAGS)
+CXX = c++ $(FLAGS)
 
 all: $(NAME)
 
 $(NAME): $(SOURCES) $(OBJECTS) 
-	@$(CCXX) $(OBJECTS) -o $(NAME)
+	@$(CXX) $(OBJECTS) -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS) $(OBJECTS_BONUS)
