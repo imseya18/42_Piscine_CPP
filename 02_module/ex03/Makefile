@@ -1,7 +1,8 @@
 NAME = out
 
 SOURCES =  	main.cpp\
-			Fixed.cpp
+			Fixed.cpp\
+			Point.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 

@@ -15,7 +15,6 @@ class Fixed
         Fixed(Fixed const & src);
 		Fixed(int const value);
 		Fixed(float const value);
-		Fixed(unsigned int lala);
 	// DESTRUCTEUR
         ~Fixed();
 
