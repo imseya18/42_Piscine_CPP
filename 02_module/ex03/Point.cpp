@@ -17,8 +17,7 @@ Point::Point(float const x, float const y): _x(x), _y(y)
 
 Point &Point::operator=(Point const & rhs)
 {
-	(Fixed) this->_x = rhs._x;
-	(Fixed) this->_y = rhs._y;
+	(void)rhs;
 	return *this;
 }
 
