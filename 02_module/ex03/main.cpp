@@ -1,9 +1,16 @@
 #include "Fixed.hpp"
 #include "Point.hpp"
+#include <cstdlib>
+
 int main()
 {
+	Point a;
 	Point b(5, 10);
-	Point a(b);
+	Point c(5, 3);
+	Point point(5, 3);
 
-	std::cout << a << std::endl;
+	if(bsp(a, b , c , point) == true)
+		std::cout << point << " is inside" << std::endl;
+	else
+		std::cout << point << " is outside" << std::endl;
 }
