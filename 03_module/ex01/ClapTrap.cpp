@@ -24,6 +24,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const & rhs)
 		this->_energy_points = rhs._energy_points;
 		this->_attack_damage = rhs._attack_damage;
 	}
+
 	return *this;
 }
 
@@ -60,7 +61,7 @@ std::string ClapTrap::GetName()
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->_energy_points <= 0 || this->_hit_points <= 0)
+	if (this->_energy_points <= 0)
 	{
 		std::cout << this->_name << " has no more energy points" << std::endl;
 		return ;
