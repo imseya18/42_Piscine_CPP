@@ -9,11 +9,19 @@
 class ClapTrap
 {
     public:
+
+		// Constructor && Destructor
         ClapTrap(std::string name);
         ClapTrap(ClapTrap const & src);
         ~ClapTrap();
-        
         ClapTrap &     operator=(ClapTrap const & rhs);
+
+		// Get and Set variable
+		int	GetAttack();
+		void SetAttack(int attack);
+		int GetEnergy();
+		int GetHp();
+		std::string GetName();
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

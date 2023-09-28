@@ -1,7 +1,7 @@
 NAME = out
 
 SOURCES =  	main.cpp\
-			
+			ClapTrap.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
