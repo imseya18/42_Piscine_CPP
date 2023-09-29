@@ -89,6 +89,8 @@ Fixed		Fixed::operator-(Fixed const & rhs)
 
 Fixed		Fixed::operator/(Fixed const & rhs)
 {
+	if(rhs.toFloat() == 0)
+			std::cout << "division by 0 is undefined value is unpredictable" << std::endl;
 	return(Fixed(toFloat() / rhs.toFloat()));
 }
 
