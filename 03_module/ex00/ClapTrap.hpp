@@ -11,6 +11,7 @@ class ClapTrap
     public:
 
 		// Constructor && Destructor
+		ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(ClapTrap const & src);
         ~ClapTrap();

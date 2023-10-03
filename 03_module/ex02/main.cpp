@@ -9,5 +9,7 @@ int main()
 	john.attack("thiery");
 	thiery.takeDamage(john.GetAttack());
 	john.highFivesGuys();
+	thiery.DisplayInfo();
+	john.DisplayInfo();
 	return 0;
 }

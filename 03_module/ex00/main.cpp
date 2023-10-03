@@ -10,7 +10,7 @@ int main()
 	thiery.takeDamage(john.GetAttack());
 	john.attack(thiery.GetName());
 	thiery.takeDamage(john.GetAttack());
-	john.attack(thiery.GetName());
-	thiery.takeDamage(john.GetAttack());
+	thiery.DisplayInfo();
+	john.DisplayInfo();
 	return 0;
 }
