@@ -4,6 +4,8 @@ SOURCES =  	main.cpp\
 			Animal.cpp\
 			Dog.cpp\
 			Cat.cpp\
+			WrongCat.cpp\
+			WrongAnimal.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
