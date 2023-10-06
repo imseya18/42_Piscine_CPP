@@ -36,7 +36,7 @@ Brain::~Brain()
 
 void Brain::displaySpecificIdea(int i)
 {
-	if(i >= int(sizeof(this->_ideas) / sizeof(this->_ideas[0])))
+	if(i >= int(sizeof(this->_ideas) / sizeof(this->_ideas[0])) || i < 0)
 	{
 		std::cout << "index is out of range" << std::endl;
 		return ;
