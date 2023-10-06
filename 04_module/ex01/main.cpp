@@ -4,20 +4,22 @@
 #include "Brain.hpp"
 int main()
 {
-	//const Animal* meta = new Animal();
-	//const Animal* j = new Dog();
-	//const Animal* i = new Cat();
-	//std::cout << j->getType() << " " << std::endl;
-	//std::cout << i->getType() << " " << std::endl;
-	//i->makeSound(); //will output the cat sound!
-	//j->makeSound();
-	//meta->makeSound();
-	//delete meta;
-	//delete j;
-	//delete i;
+	Dog dog;
 
-	Brain test("dog");
-
-	test.displayIdeas();
+	dog.getBrain().displayIdeas();
+	const Animal *Animal_tab[100];
+	for(int i = 0; i < 100; i++)
+	{
+		if (i < 50)
+			Animal_tab[i] = new Cat();
+		else
+			Animal_tab[i] = new Dog();
+	}
+	for(int i = 0; i < 100; i++)
+	{
+		Animal_tab[i]->makeSound();
+	}
+	for(int i = 0; i < 100; i++)
+		delete Animal_tab[i];
 	return 0;
 }

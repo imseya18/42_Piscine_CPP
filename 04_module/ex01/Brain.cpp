@@ -15,7 +15,7 @@ Brain::Brain()
 Brain::Brain(std::string type)
 {
 	std::ostringstream oss;
-	std::cout << "constructor for Brain has beeen called" << std::endl;
+	std::cout << "Constructor for Brain has beeen called" << std::endl;
 	for (int i = 0; i < 100; i++)
 	{
 		oss << i;
