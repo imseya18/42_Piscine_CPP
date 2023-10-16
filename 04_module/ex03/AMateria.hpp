@@ -5,7 +5,8 @@
 
 #include <string>
 #include <iostream>
-#include "ICharacter.hpp"
+//#include "ICharacter.hpp"
+class ICharacter;
 
 class AMateria
 {
@@ -13,7 +14,7 @@ class AMateria
         AMateria();
 		AMateria(std::string const &type);
         AMateria(AMateria const & src);
-        ~AMateria();
+        virtual ~AMateria();
         AMateria &     operator=(AMateria const & rhs);
 
 		std::string const & getType() const;

@@ -6,7 +6,7 @@ Character::Character(): _name("Default name")
 		_inventory[i] = 0;
 }
 
-Character::Character(std::string name): _name(name)
+Character::Character(std::string const &name): _name(name)
 {
 	for(int i = 0; i < 4; i++)
 		_inventory[i] = 0;
@@ -29,6 +29,11 @@ Character::~Character()
 Character&     Character::operator=(Character const & rhs)
 {
 	this->_name = rhs._name;
+	for(int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] != 0)
+			delete _inventory[i];
+	}
 	for	(int i = 0; i < 4; i++)
 	{
 		this->_inventory[i] = rhs._inventory[i];
@@ -47,7 +52,7 @@ void Character::equip(AMateria *m)
 	while(i < 4 && _inventory[i] != 0)
 		i++;
 	if(i < 4)
-		_inventory[i] = m->clone();
+		_inventory[i] = m;
 	return ;
 }
 
