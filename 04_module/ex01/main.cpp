@@ -5,7 +5,7 @@
 int main()
 {
 	Dog dog;
-
+	
 	dog.getBrain().displayIdeas();
 	const Animal *Animal_tab[100];
 	for(int i = 0; i < 100; i++)
@@ -22,4 +22,9 @@ int main()
 	for(int i = 0; i < 100; i++)
 		delete Animal_tab[i];
 	return 0;
+	Cat basic;
+	{
+	Cat tmp = basic;
+	}
 }
+

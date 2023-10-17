@@ -16,6 +16,8 @@ Cat::Cat(std::string name)
 
 Cat::Cat(Cat const & src)
 {
+	std::cout << "copy Dog constructor has been called" << std::endl;
+	_brain = 0;
     *this = src;
 }
 
@@ -27,8 +29,14 @@ Cat::~Cat()
 
 Cat &Cat::operator=(Cat const & rhs)
 {
-	Animal::operator=(rhs);
-	*_brain = *(rhs._brain);
+	if(this != &rhs)
+	{	
+		Animal::operator=(rhs);
+		if (_brain)
+			delete _brain;
+
+		_brain = new Brain(*rhs._brain);
+	}
 	return *this;
 }
 
