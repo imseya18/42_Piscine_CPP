@@ -8,6 +8,8 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(MateriaSource const & src)
 {
+	for(int i = 0; i< 4; i++)
+		_Materia_tab[i] = 0;
     *this = src;
 }
 
@@ -22,6 +24,11 @@ MateriaSource::~MateriaSource()
 
 MateriaSource&     MateriaSource::operator=(MateriaSource const & rhs)
 {
+	for(int i = 0; i < 4; i++)
+	{
+		if (this->_Materia_tab[i] != 0)
+			delete _Materia_tab[i];
+	}
 	for(int i = 0; i < 4; i++)
 		_Materia_tab[i] = rhs._Materia_tab[i];
 	return *this;

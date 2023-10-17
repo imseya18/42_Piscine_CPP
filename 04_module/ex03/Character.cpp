@@ -14,6 +14,8 @@ Character::Character(std::string const &name): _name(name)
 
 Character::Character(Character const & src)
 {
+	for(int i = 0; i < 4; i++)
+		_inventory[i] = 0;
     *this = src;
 }
 
