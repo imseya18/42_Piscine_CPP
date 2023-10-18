@@ -30,15 +30,21 @@ Character::~Character()
 
 Character&     Character::operator=(Character const & rhs)
 {
+	std::cout << "je passe ici" << std::endl;
 	this->_name = rhs._name;
 	for(int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] != 0)
+		{
 			delete _inventory[i];
+			_inventory[i] = 0;
+		}
 	}
+
 	for	(int i = 0; i < 4; i++)
 	{
-		this->_inventory[i] = rhs._inventory[i];
+		if(rhs._inventory[i] != 0)
+			this->_inventory[i] = rhs._inventory[i]->clone();
 	}
 	return *this;
 }
