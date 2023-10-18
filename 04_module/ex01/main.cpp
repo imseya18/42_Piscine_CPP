@@ -24,7 +24,7 @@ int main()
 	return 0;
 	Cat basic;
 	{
-	Cat tmp = basic;
+		Cat tmp = basic;
 	}
 }
 
