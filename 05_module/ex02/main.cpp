@@ -1,10 +1,10 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 int main()
 {
 	try
 	{
-		Form test("Form_1", 150, 100);
+		AForm test("Form_1", 150, 100);
 		Bureaucrat john("john", 50);
 		std::cout << test << std::endl;
 		std::cout << john << std::endl;

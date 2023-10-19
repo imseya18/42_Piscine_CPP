@@ -6,12 +6,12 @@
 #include <string>
 #include <iostream>
 #include "Bureaucrat.hpp"
-class Form
+class AForm
 {
     public:
-		Form(std::string name, int gradeToSign, int gradeToExecute);
-        ~Form();
-        Form(Form const & src);
+		AForm(std::string name, int gradeToSign, int gradeToExecute);
+        virtual ~AForm();
+        AForm(AForm const & src);
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -28,20 +28,29 @@ class Form
 		};
 		void displayInfo();
 		void	checkValideGrade(int grade);
+
+		// GETTER
 		std::string getName() const;
 		bool	getSigned() const;
 		int		getGradeToSign() const;
 		int		getGradeToExecute() const;
+		
+		////SETTER
+		//void 	setName(std::string name);
+		//void	setSigned(bool is_signed);
+		//void	setGradeToSign(int gradeToSign);
+		//void	setGradeToExecute(int gradeToExecute);
+
 		void 	beSigned(Bureaucrat const &Bureaucrat);
     private:
-		Form &     operator=(Form const & rhs);
-		Form();
+		AForm &     operator=(AForm const & rhs);
+		AForm();
 		std::string const 	_name;
 		bool				_is_signed;
 		int	const			_gradeToSign;
 		int const			_gradeToExecute;
 };
 
-std::ostream &	operator<<(std::ostream & o, Form const & rhs);
+std::ostream &	operator<<(std::ostream & o, AForm const & rhs);
 
 #endif
