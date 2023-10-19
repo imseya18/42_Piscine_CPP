@@ -7,6 +7,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(): AForm::AForm("", 145, 137)
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src): AForm::AForm(src)
 {
+	
     *this = src;
 }
 
