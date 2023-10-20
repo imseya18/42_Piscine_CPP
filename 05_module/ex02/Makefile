@@ -2,7 +2,10 @@ NAME = out
 
 SOURCES =  	main.cpp\
 			Bureaucrat.cpp\
-			Form.cpp\
+			AForm.cpp\
+			ShrubberyCreationForm.cpp\
+			RobotomyRequestForm.cpp\
+			PresidentialPardonForm.cpp\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 

@@ -1,23 +1,31 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
 int main()
 {
 	try
 	{
-		AForm test("Form_1", 150, 100);
-		Bureaucrat john("john", 50);
-		std::cout << test << std::endl;
-		std::cout << john << std::endl;
-		std::cout << "\n";
-		test.beSigned(john);
-		std::cout << "\n";
-		std::cout << test << std::endl;
-		test.beSigned(john);
+		ShrubberyCreationForm test_shrubbery("Shrubbery");
+		ShrubberyCreationForm test_shrubbery2("Shrubbery2");
+		PresidentialPardonForm test_president("president");
+		PresidentialPardonForm test_president2("president2");
+		RobotomyRequestForm test_robot("robot");
+		RobotomyRequestForm test_robot2("robot2");
+		std::cout << test_shrubbery << std::endl;
+		std::cout << test_president << std::endl;
+		std::cout << test_robot << std::endl;
+		test_robot = test_robot2;
+		test_president = test_president2;
+		test_shrubbery = test_shrubbery2;
+		std::cout << test_shrubbery << std::endl;
+		std::cout << test_president << std::endl;
+		std::cout << test_robot << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-
 }

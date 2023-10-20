@@ -17,6 +17,13 @@ class AForm
 			public:
 				virtual const char* what() const throw();
 		};
+
+		class FormIsNotSigned: public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
 		class GradeTooLowException: public std::exception
 		{
 			public:
@@ -28,7 +35,7 @@ class AForm
 		};
 		void displayInfo();
 		void	checkValideGrade(int grade);
-
+		bool	checkIsExecutable(int bureaucrat_grade) const;
 		// GETTER
 		std::string getName() const;
 		bool	getSigned() const;
@@ -41,6 +48,7 @@ class AForm
 		//void	setGradeToSign(int gradeToSign);
 		//void	setGradeToExecute(int gradeToExecute);
 
+		virtual void 	execute(Bureaucrat const & executor) const = 0;
 		void 	beSigned(Bureaucrat const &Bureaucrat);
     private:
 		AForm &     operator=(AForm const & rhs);
@@ -50,7 +58,6 @@ class AForm
 		int	const			_gradeToSign;
 		int const			_gradeToExecute;
 };
-
 std::ostream &	operator<<(std::ostream & o, AForm const & rhs);
 
 #endif

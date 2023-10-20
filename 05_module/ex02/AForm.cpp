@@ -44,6 +44,15 @@ void	AForm::checkValideGrade(int grade)
 		throw AForm::GradeTooLowException("");
 }
 
+bool AForm::checkIsExecutable(int bureaucrat_grade) const
+{
+	if (this->_is_signed == false)
+		throw AForm::FormIsNotSigned();
+	if (bureaucrat_grade > this->_gradeToExecute)
+		throw AForm::GradeTooLowException("to execute the form");
+	return true;
+}
+
 const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade is to high");
@@ -52,6 +61,31 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
 	return (_msg.c_str());
+}
+
+const char* AForm::FormIsNotSigned::what() const throw()
+{
+	return ("Form is not signed");
+}
+
+std::string AForm::getName() const
+{
+	return(this->_name);
+}
+
+bool	AForm::getSigned() const
+{
+	return(this->_is_signed);
+}
+
+int		AForm::getGradeToSign() const
+{
+	return(this->_gradeToSign);
+}
+
+int		AForm::getGradeToExecute() const
+{
+	return(this->_gradeToExecute);
 }
 
 std::ostream &	operator<<(std::ostream & o, AForm const & rhs)
