@@ -26,10 +26,10 @@ std::string ShrubberyCreationForm::getTarget() const
 	return (this->_target);
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
-{
-	
-}
+// void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+// {
+	// 
+// }
 
 ShrubberyCreationForm&     ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs)
 {

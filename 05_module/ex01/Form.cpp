@@ -35,19 +35,16 @@ int		Form::getGradeToExecute() const
 	return(this->_gradeToExecute);
 }
 
-void Form::beSigned(Bureaucrat const &Bureaucrat)
+bool Form::beSigned(Bureaucrat const &Bureaucrat)
 {
 	if (this->_is_signed == true)
-	{
-		Bureaucrat.signForm(this->_name, false, "this form is already signed");
-		return ;
-	}
+		return false;
 	if (Bureaucrat.getGrade() > this->_gradeToSign)
 		throw Form::GradeTooLowException("to sign the form");
 	else
 	{
 		this->_is_signed = true;
-		Bureaucrat.signForm(this->_name, true, "");
+		return true;
 	}
 }
 

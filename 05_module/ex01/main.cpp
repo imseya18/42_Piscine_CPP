@@ -9,10 +9,10 @@ int main()
 		std::cout << test << std::endl;
 		std::cout << john << std::endl;
 		std::cout << "\n";
-		test.beSigned(john);
+		john.signForm(test);
 		std::cout << "\n";
 		std::cout << test << std::endl;
-		test.beSigned(john);
+		john.signForm(test);
 	}
 	catch(const std::exception& e)
 	{

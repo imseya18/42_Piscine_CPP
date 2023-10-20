@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
@@ -25,13 +25,21 @@ int	Bureaucrat::getGrade() const
 {
 	return(this->_grade);
 }
-void	Bureaucrat::signForm(std::string const &form_name, bool gotSigned, std::string const &reason) const
+
+void Bureaucrat::executeForm(AForm const &form) const
 {
-	if (gotSigned == true)
-		std::cout << this->_name << " signed " << form_name << std::endl;
-	else
-		std::cout << this->_name << " couldn’t sign " << form_name << " because " << reason <<std::endl;
+	if(form.execute(*this) == true)
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
+
+void	Bureaucrat::signForm(AForm &form) const
+{
+	if (form.beSigned(*this) == true)
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	else
+		std::cout << this->_name << " couldn't sign the form because this form is already signed" << std::endl;
+}
+
 void	Bureaucrat::checkValideGrade()
 {
 	if (this->_grade < 1)

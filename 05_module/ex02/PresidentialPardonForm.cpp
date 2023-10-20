@@ -31,10 +31,12 @@ std::string PresidentialPardonForm::getTarget() const
 {
 	return(this->_target);
 }
-void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+
+bool PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (checkIsExecutable(executor.getGrade()) == true)
-		std::cout << "test" << std::endl; 
+		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	return true;
 }
 std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &rhs)
 {

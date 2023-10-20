@@ -15,25 +15,17 @@ AForm::~AForm()
 
 }
 
-void AForm::beSigned(Bureaucrat const &Bureaucrat)
+bool AForm::beSigned(Bureaucrat const &Bureaucrat)
 {
 	if (this->_is_signed == true)
-	{
-		Bureaucrat.signForm(this->_name, false, "this form is already signed");
-		return ;
-	}
+		return false;
 	if (Bureaucrat.getGrade() > this->_gradeToSign)
 		throw AForm::GradeTooLowException("to sign the form");
 	else
 	{
 		this->_is_signed = true;
-		Bureaucrat.signForm(this->_name, true, "");
+		return true;
 	}
-}
-
-void AForm::displayInfo()
-{
-	std::cout << this->_name <<"\n" << this->_is_signed << "\n" << this->_gradeToExecute << "\n" << this->_gradeToSign << std::endl;
 }
 
 void	AForm::checkValideGrade(int grade)

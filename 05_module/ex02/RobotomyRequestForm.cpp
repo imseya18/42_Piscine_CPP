@@ -26,10 +26,10 @@ std::string RobotomyRequestForm::getTarget() const
 	return (this->_target);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &executor) const
-{
-	
-}
+// void RobotomyRequestForm::execute(Bureaucrat const &executor) const
+// {
+	// 
+// }
 
 RobotomyRequestForm&     RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs)
 {

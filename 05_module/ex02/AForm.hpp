@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include "Bureaucrat.hpp"
+
 class AForm
 {
     public:
@@ -33,23 +34,17 @@ class AForm
 			private:
 				std::string _msg;
 		};
-		void displayInfo();
-		void	checkValideGrade(int grade);
-		bool	checkIsExecutable(int bureaucrat_grade) const;
 		// GETTER
 		std::string getName() const;
 		bool	getSigned() const;
 		int		getGradeToSign() const;
 		int		getGradeToExecute() const;
-		
-		////SETTER
-		//void 	setName(std::string name);
-		//void	setSigned(bool is_signed);
-		//void	setGradeToSign(int gradeToSign);
-		//void	setGradeToExecute(int gradeToExecute);
 
-		virtual void 	execute(Bureaucrat const & executor) const = 0;
-		void 	beSigned(Bureaucrat const &Bureaucrat);
+
+		virtual bool 	execute(Bureaucrat const & executor) const = 0;
+		bool 	beSigned(Bureaucrat const &Bureaucrat);
+		void	checkValideGrade(int grade);
+		bool	checkIsExecutable(int bureaucrat_grade) const;
     private:
 		AForm &     operator=(AForm const & rhs);
 		AForm();

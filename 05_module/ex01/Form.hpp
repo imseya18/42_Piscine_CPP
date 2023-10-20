@@ -32,7 +32,7 @@ class Form
 		bool	getSigned() const;
 		int		getGradeToSign() const;
 		int		getGradeToExecute() const;
-		void 	beSigned(Bureaucrat const &Bureaucrat);
+		bool 	beSigned(Bureaucrat const &Bureaucrat);
     private:
 		Form &     operator=(Form const & rhs);
 		Form();
