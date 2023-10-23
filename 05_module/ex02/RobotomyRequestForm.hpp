@@ -6,6 +6,8 @@
 #include <string>
 #include <iostream>
 #include "AForm.hpp"
+#include <stdlib.h>
+#include <time.h>
 
 class RobotomyRequestForm: public AForm
 {
@@ -16,7 +18,7 @@ class RobotomyRequestForm: public AForm
         ~RobotomyRequestForm();
         
 		std::string	getTarget() const;
-		//void 	execute(Bureaucrat const & executor) const;
+		bool 	execute(Bureaucrat const & executor) const;
     private:
 
 		RobotomyRequestForm();

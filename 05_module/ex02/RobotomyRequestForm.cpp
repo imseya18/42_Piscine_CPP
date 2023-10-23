@@ -25,11 +25,22 @@ std::string RobotomyRequestForm::getTarget() const
 {
 	return (this->_target);
 }
+bool RobotomyRequestForm::execute(Bureaucrat const &executor) const
+{ 
+	if(checkIsExecutable(executor.getGrade()) == true)
+	{
+		srand (time(NULL));
+		int random_value;
 
-// void RobotomyRequestForm::execute(Bureaucrat const &executor) const
-// {
-	// 
-// }
+		random_value = rand() % 2 + 1;
+		std::cout << "ZzZzzZ ... ZzZzzZ\n";
+		if(random_value % 2 == 0)
+			std::cout << executor.getName() << " has been robotomized" << std::endl;
+		else
+			std::cout << "robotomy failed" << std::endl; 
+	}
+	return true;
+}
 
 RobotomyRequestForm&     RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs)
 {
