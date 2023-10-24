@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include <iomanip>
 
 class ScalarConverter
 {
@@ -16,14 +17,21 @@ class ScalarConverter
         
         ScalarConverter &     operator=(ScalarConverter const & rhs);
 
-		static void		convert(std::string input);
-		static void 	intConvertion(std::string input);
-		static void 	charConvertion(std::string input);
-		static void 	doubleConvertion(std::string input);
-		static void 	floatConvertion(std::string input);
-		static bool 	checkSpecific(std::string input);
+		static void		convert(std::string const &input);
+		static void 	intConvertion(std::string const &input);
+		static void 	charConvertion(std::string const &input);
+		static void 	doubleConvertion(std::string const &input);
+		static void 	floatConvertion(std::string const &input);
+		static bool 	checkSpecific(std::string const &input);
+		class NotValideNumber : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		
     private:
-
+		static int		findPrecision(std::string const &input);
+		static bool		CheckValideNumber(std::string const &input);
 };
 
 #endif
