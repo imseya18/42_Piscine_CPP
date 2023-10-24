@@ -8,13 +8,12 @@ int main()
 {
 
 	// TOUT OK
+	AForm* rrf;
 	try
 	{
-		
-		Bureaucrat				President("President" , 50);
+		Bureaucrat				President("President" , 5);
 		Intern someRandomIntern;
-		AForm* rrf;
-		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		President.signForm(rrf);
 		President.executeForm(rrf);
 		if (rrf)
@@ -22,6 +21,8 @@ int main()
 	}
 	catch(const std::exception& e)
 	{
+		if (rrf)
+			delete rrf;
 		std::cerr << e.what() << '\n';
 	}
 
