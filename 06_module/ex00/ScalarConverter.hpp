@@ -7,7 +7,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <iomanip>
-
+#include <sstream>
 class ScalarConverter
 {
     public:
