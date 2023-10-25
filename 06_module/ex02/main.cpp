@@ -44,7 +44,29 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	
+	try
+	{
+		dynamic_cast<A&>(p);
+		std::cout << "it's a type A class" << std::endl;
+		return ;
+	}
+	catch(...) {}
+	try
+	{
+		dynamic_cast<B&>(p);
+		std::cout << "it's a type B class" << std::endl;
+		return ;
+	}
+	catch(...) {}
+	try
+	{
+		dynamic_cast<C&>(p);
+		std::cout << "it's a type C class" << std::endl;
+		return ;
+	}
+	catch(...) {}
+	std::cout << "Wrong type of class" << std::endl;
+	return ;
 }
 
 int main()
