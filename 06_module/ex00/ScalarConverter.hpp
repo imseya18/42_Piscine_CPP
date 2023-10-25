@@ -11,18 +11,14 @@
 class ScalarConverter
 {
     public:
-        ScalarConverter();
-        ScalarConverter(ScalarConverter const & src);
         ~ScalarConverter();
-        
-        ScalarConverter &     operator=(ScalarConverter const & rhs);
-
 		static void		convert(std::string const &input);
 		static void 	intConvertion(std::string const &input);
 		static void 	charConvertion(std::string const &input);
 		static void 	doubleConvertion(std::string const &input);
 		static void 	floatConvertion(std::string const &input);
 		static bool 	checkSpecific(std::string const &input);
+		static bool		checkLimit(std::string const &input);
 		class NotValideNumber : public std::exception
 		{
 			public:
@@ -30,6 +26,9 @@ class ScalarConverter
 		};
 		
     private:
+	    ScalarConverter();
+        ScalarConverter(ScalarConverter const & src);
+		ScalarConverter &     operator=(ScalarConverter const & rhs);
 		static int		findPrecision(std::string const &input);
 		static bool		CheckValideNumber(std::string const &input);
 };

@@ -53,7 +53,7 @@ void  ScalarConverter::charConvertion(std::string const &input)
 
 void  ScalarConverter::intConvertion(std::string const &input)
 {
-	if(checkSpecific(input) == true)
+	if(checkSpecific(input) == true || checkLimit(input) == true)
 		std::cout << "int: impossible" << std::endl;
 	else 
 	{
@@ -101,7 +101,7 @@ bool ScalarConverter::checkSpecific(std::string const &input)
 	strs << result;
 	std::string str = strs.str();
 
-	if (str == "nan" || str == "-inf" || str == "+inf")
+	if (str == "nan" || str == "-inf" || str == "+inf" || str == "inf")
 		return true;
 	return false;
 }
@@ -114,7 +114,13 @@ void  ScalarConverter::doubleConvertion(std::string const &input)
 	return ;
 }
 
-
+bool ScalarConverter::checkLimit(std::string const &input)
+{
+	long long result = atoll(input.c_str());
+	if(result < -2147483648 || result > 2147483647)
+		return true;
+	return false;
+}
 const char* ScalarConverter::NotValideNumber::what() const throw()
 {
 	return ("not a valide number");
