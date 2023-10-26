@@ -13,14 +13,17 @@ Base * generate(void)
 	switch (random_number)
 	{
 	case 0:
+		std::cout << "I create a type A class" << std::endl;
 		return (new A);
 		break;
 	
 	case 1:
+		std::cout << "I create a type B class" << std::endl;
 		return (new B);
 		break;
 
 	case 2:
+		std::cout << "I create a type C class" << std::endl;
 		return (new C);
 		break;
 	default:
@@ -46,21 +49,21 @@ void identify(Base& p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << "it's a type A class" << std::endl;
 		return ;
 	}
 	catch(...) {}
 	try
 	{
-		dynamic_cast<B&>(p);
+		(void)dynamic_cast<B&>(p);
 		std::cout << "it's a type B class" << std::endl;
 		return ;
 	}
 	catch(...) {}
 	try
 	{
-		dynamic_cast<C&>(p);
+		(void)dynamic_cast<C&>(p);
 		std::cout << "it's a type C class" << std::endl;
 		return ;
 	}
