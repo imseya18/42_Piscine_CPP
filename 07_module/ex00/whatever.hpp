@@ -31,19 +31,5 @@ T const &min(T const &value_1, T const &value_2)
 	else
 		return value_2;
 }
-//class whatever
-//{
-//    public:
-//        ~whatever();
-//		void swap(T &value_1, T &value_2)
-//		{
-//			T tmp = value_1;
-//			value_1 = value_2;
-//			value_2 = tmp;
-//		}
-//
-//    private:
-//		whatever();
-//};
 
 #endif
