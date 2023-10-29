@@ -18,12 +18,9 @@ class ErrorValue: public std::exception
 };
 
 template<typename T>
-int easyfind(const T &container, int to_find)
+typename T::iterator easyfind(T &container, int to_find)
 {
-	typename T::const_iterator it  = std::find(container.begin(), container.end(), to_find);
-	if(it != container.end())
-		return *it;
-	else
-		throw ErrorValue();
+	typename T::iterator it  = std::find(container.begin(), container.end(), to_find);
+	return it;
 }
 #endif
