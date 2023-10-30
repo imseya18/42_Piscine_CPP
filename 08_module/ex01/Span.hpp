@@ -24,15 +24,24 @@ class Span
 			public:
 				virtual const char* what() const throw();
 		};
+
+		class NotEnoughElement : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 		int	getMaxValue();
 		int getMinValue();
+		int longestSpan();
+		int getVectorSize();
+		void fillVector();
+		void displayVector();
     private:
 	    Span();
-		unsigned int	_max_size;
-		unsigned int	_actual_size;
-		int				_max_value;
-		int				_min_value;
-		int				*_tab;
+		unsigned int		_max_size;
+		int					_max_value;
+		int					_min_value;
+		std::vector<int>	_tab;
 };
 
 #endif
