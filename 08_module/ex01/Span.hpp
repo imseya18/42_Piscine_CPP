@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include <string>
-#include <iostream>
+//#include <string>
+//#include <iostream>
 #include <bits/stdc++.h>
 
 class Span
@@ -14,7 +14,7 @@ class Span
         Span(Span const & src);
         ~Span();
         
-        //Span &     operator=(Span const & rhs);
+        Span &     operator=(Span const & rhs);
 
 		void addNumber(int number_to_add);
 
@@ -33,6 +33,7 @@ class Span
 		int	getMaxValue();
 		int getMinValue();
 		int longestSpan();
+		int shortestSpan();
 		int getVectorSize();
 		void fillVector();
 		void displayVector();

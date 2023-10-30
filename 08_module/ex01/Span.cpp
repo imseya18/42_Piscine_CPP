@@ -19,6 +19,22 @@ int Span::longestSpan()
 	return (_max_value - _min_value);
 }
 
+int Span::shortestSpan()
+{
+	if(_tab.size() < 2)
+		throw NotEnoughElement();
+	int span = -1;
+	int temp_res;
+	std::sort(_tab.begin(), _tab.end());
+	for(size_t i = 0, j = i + 1; j < _tab.size(); i++, j++)
+	{
+		temp_res = abs(_tab[i] - _tab[j]);
+		if(temp_res < span || span == -1)
+			span = temp_res;
+	}
+	return span;
+}
+
 int Span::getVectorSize()
 {
 	return _tab.size();
@@ -26,8 +42,9 @@ int Span::getVectorSize()
 
 void Span::fillVector()
 {
+	std::vector<int>::iterator it = _tab.end();
 	_tab.resize(_max_size);
-	std::generate(_tab.begin(), _tab.end(), rand);
+	std::generate(it, _tab.end(), rand);
 }
 
 void Span::displayVector()
@@ -43,6 +60,7 @@ Span::Span()
 
 Span::Span(unsigned int max_size): _max_size(max_size)
 {
+	_tab.reserve(_max_size);
 }
 
 Span::Span(Span const & src)
@@ -50,10 +68,17 @@ Span::Span(Span const & src)
     *this = src;
 }
 
-//Span &     Span::operator=(Span const & rhs)
-//{
-//
-//}
+Span &     Span::operator=(Span const & rhs)
+{
+	if(this != &rhs)
+	{
+		_max_size = rhs._max_size;
+		_max_value = rhs._max_value;
+		_min_value = rhs._min_value;
+		_tab = rhs._tab;
+	}
+	return *this;
+}
 
 void Span::addNumber(int number_to_add)
 {

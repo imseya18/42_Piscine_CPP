@@ -2,10 +2,15 @@
 
 int main()
 {	
-	Span test(10000);
-	test.addNumber(124);
-	test.addNumber(1251235);
+	Span test(5);
+	Span test2(test);
+	test.addNumber(1);
+	test.addNumber(2);
 	test.fillVector();
-	std::cout << test.getVectorSize() << std::endl;
-	//std::cout << test.longestSpan() << std::endl;
+	test.displayVector();
+
+	test2.displayVector();
+	std::cout << "longest span = " << test.longestSpan() << std::endl;
+	std::cout << "shortest span = " << test.shortestSpan() << std::endl;
+	test.displayVector();
 }
