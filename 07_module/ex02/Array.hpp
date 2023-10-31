@@ -21,6 +21,7 @@ class Array
 				virtual const char* what() const throw();
 		};
 	   	T&	operator[](unsigned int i);
+		const T&	operator[](unsigned int i) const;
 		unsigned int& Size();
 		void	displayTab();
     private:
@@ -94,6 +95,14 @@ const char *Array<T>::outOfRange::what() const throw()
 
 template< typename T >
 T&	Array<T>::operator[](unsigned int index)
+{
+		if(index >= this->_size)
+			throw Array<T>::outOfRange();
+		return (_tab[index]);
+}
+
+template< typename T >
+const T&	Array<T>::operator[](unsigned int index) const
 {
 		if(index >= this->_size)
 			throw Array<T>::outOfRange();
