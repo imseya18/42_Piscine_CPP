@@ -14,7 +14,7 @@ class RPN
 		RPN(std::string input);
         RPN(RPN const & src);
         ~RPN();
-        //RPN &     operator=(RPN const & rhs);
+        RPN &     operator=(RPN const & rhs);
 		void parse_input();
 		int doTheMath();
 		bool checkValideNumber(std::string str);

@@ -15,13 +15,21 @@ RPN::RPN(RPN const &src)
     *this = src;
 }
 
-//RPN &     RPN::operator=(RPN const & rhs)
-//{
-//
-//}
+RPN &     RPN::operator=(RPN const & rhs)
+{
+	if(this != &rhs)
+	{
+		this->_input = rhs._input;
+		this->_stock = rhs._stock;
+		this->_valide_char = rhs._valide_char;
+	}
+	return *this;
+}
 
 void RPN::parse_input()
 {
+	if(_input.empty() == true)
+		throw Error();
 	for(size_t i = 0; i < _input.size(); i++)
 	{
 		if (_valide_char.find(_input[i]) == std::string::npos)
