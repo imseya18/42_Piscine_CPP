@@ -5,6 +5,9 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <stack>
+#include <cstdlib>
 class RPN
 {
     public:
@@ -13,7 +16,11 @@ class RPN
         ~RPN();
         //RPN &     operator=(RPN const & rhs);
 		void parse_input();
-
+		int doTheMath();
+		bool checkValideNumber(std::string str);
+		bool checkValideOperator(std::string str);
+		void operatorCalcul(std::string str);
+		int	 getNumberFromStack();
 		class Error : public std::exception
 		{
 			public:
@@ -22,8 +29,9 @@ class RPN
 
     private:
 		RPN();
-		std::string _input;
-		std::string _valide_char;
+		std::stack<int> _stock;
+		std::string 	_input;
+		std::string 	_valide_char;
 };
 
 #endif

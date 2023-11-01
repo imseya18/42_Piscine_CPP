@@ -1,4 +1,4 @@
-NAME = out
+NAME = RPN
 
 SOURCES =  	main.cpp\
 			RPN.cpp
