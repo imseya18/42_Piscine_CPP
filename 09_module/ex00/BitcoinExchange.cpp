@@ -54,20 +54,6 @@ time_t BitcoinExchange::checkValideDate(std::string str_date)
 	time_t date = mktime(&dateInfo);
 	return (date);
 }
-void BitcoinExchange::parseAndMath(std::string date, std::string bitcoin_nb)
-{
-	std::cout << date << " size = "<< date.size() << std::endl;
-	try
-	{
-		checkValideDate(date);
-		checkValideNumber(bitcoin_nb);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << '\n';
-	}
-	
-}
 
 float BitcoinExchange::checkValideNumber(std::string bitcoin_nb)
 {
@@ -80,6 +66,29 @@ float BitcoinExchange::checkValideNumber(std::string bitcoin_nb)
 		throw Error("Error: too large a number.");
 	return (result);
 }
+void BitcoinExchange::parseAndMath(std::string date, std::string bitcoin_nb)
+{
+	//std::cout << date << " size = "<< date.size() << std::endl;
+	try
+	{
+		time_t valide_date = checkValideDate(date);
+		float valide_bitcoin_nb = checkValideNumber(bitcoin_nb);
+		std::map<time_t, float>::iterator it;
+		it = _data_map.lower_bound(valide_date);
+		if (it == _data_map.begin() && it->first != valide_date)
+				throw Error("Error: no info for " + date + "this date is to old");
+		else if (it->first != valide_date)
+			it--;
+		std::cout << date << "=> " << bitcoin_nb << " = " << it->second * valide_bitcoin_nb << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	
+}
+
+
 
 void BitcoinExchange::execute()
 {
