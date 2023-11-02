@@ -10,7 +10,7 @@
 #include <sstream>
 #include <fstream>
 #include <map>
-
+#include <cstdlib>
 class BitcoinExchange
 {
     public:
@@ -32,15 +32,20 @@ class BitcoinExchange
 		};
 
 		//FONCTION
+		time_t checkValideDate(std::string str_date);
 		void storeFile();
+		void storeData(std::string data, std::string bitcoin_value);
+		void parseAndMath(std::string date, std::string bitcoin_nb);
+		float checkValideNumber(std::string bitcoin_nb);
+		void execute();
     private:
 		BitcoinExchange();
 		std::ifstream 	_file_database;
 		std::ifstream 	_file_input;
 		std::string		str_database;
 		std::string		str_input;
-		std::map<time_t, float> data_map;
-		std::map<time_t, float> input_map;
+		std::map<time_t, float> _data_map;
+		std::map<time_t, float> _input_map;
 };
 
 #endif

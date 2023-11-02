@@ -22,16 +22,79 @@ BitcoinExchange &     BitcoinExchange::operator=(BitcoinExchange const & rhs)
 
 void BitcoinExchange::storeFile()
 {
-	std::string line;
-	std::vector<std::string> test;
-	while(std::getline(_file_database, line, ','))
+	std::string line , date, value;
+	std::getline(_file_database, line);
+	while(std::getline(_file_database, line))
 	{
-		test.push_back(line);
+		std::stringstream ss(line);
+		if(std::getline(ss, date, ',') && std::getline(ss, value, '\n'))
+			storeData(date, value);
 	}
-	for(size_t i = 0; i < test.size(); i++)
+	//for(std::map<time_t, float>::iterator it = _data_map.begin(); it != _data_map.end(); it++)
+	//	std::cout << "date = " << it->first << "  value = " << it->second << "\n";
+}
+
+void BitcoinExchange::storeData(std::string str_date, std::string bitcoin_value)
+{
+	tm dateInfo = {};
+	if (strptime(str_date.c_str(), "%Y-%m-%d", &dateInfo) == NULL)
+       throw Error("Invalide date in csv");
+	time_t date = mktime(&dateInfo);
+	float float_value = atof(bitcoin_value.c_str());
+	if(float_value < 0)
+		throw Error("Invalide date value in csv");
+	_data_map.insert(std::make_pair(date, float_value));
+}
+
+time_t BitcoinExchange::checkValideDate(std::string str_date)
+{
+	tm dateInfo = {};
+	if (strptime(str_date.c_str(), "%Y-%m-%d", &dateInfo) == NULL)
+       throw Error("Error: bad input => " + str_date);
+	time_t date = mktime(&dateInfo);
+	return (date);
+}
+void BitcoinExchange::parseAndMath(std::string date, std::string bitcoin_nb)
+{
+	std::cout << date << " size = "<< date.size() << std::endl;
+	try
 	{
-		std::cout << test[i] << std::endl;
+		checkValideDate(date);
+		checkValideNumber(bitcoin_nb);
 	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	
+}
+
+float BitcoinExchange::checkValideNumber(std::string bitcoin_nb)
+{
+	float result = atof(bitcoin_nb.c_str());
+	if(bitcoin_nb.empty())
+		throw Error("Error: no number found");
+	if (result < 0)
+		throw Error("Error: not a positive number.");
+	if (result > 1000)
+		throw Error("Error: too large a number.");
+	return (result);
+}
+
+void BitcoinExchange::execute()
+{
+	std::string line , date, value;
+	std::getline(_file_input, line);
+	while(std::getline(_file_input, line))
+	{
+		std::stringstream ss(line);
+		std::getline(ss, date, '|');
+		std::getline(ss, line, ' ');
+		std::getline(ss, value, ' ');
+		parseAndMath(date, value);
+	}
+	//for(std::map<time_t, float>::iterator it = _data_map.begin(); it != _data_map.end(); it++)
+	//	std::cout << "date = " << it->first << "  value = " << it->second << "\n";
 }
 
 BitcoinExchange::~BitcoinExchange()

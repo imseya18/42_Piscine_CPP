@@ -1,20 +1,20 @@
 #include "BitcoinExchange.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-	//std::string dateString = "2011-11-31";
-	//tm dateInfo = {};
-	//if (strptime(dateString.c_str(), "%Y-%m-%d", &dateInfo) == NULL)
-    //    std::cerr << "Erreur d'analyse de la date." << std::endl;
-	//time_t date = mktime(&dateInfo);
-	//std::cout << date << std::endl;
-	try
+	if(argc == 2)
 	{
-		BitcoinExchange test("input.txt");
-		test.storeFile();
+		try
+		{
+			BitcoinExchange test(argv[1]);
+			test.storeFile();
+			test.execute();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	else
+		std::cout << "wrong number of arguments" << std::endl;
 }
