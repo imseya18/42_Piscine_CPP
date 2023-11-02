@@ -6,6 +6,9 @@ int main()
 	Span test2(test);
 	test.addNumber(1);
 	test.addNumber(2);
+	test.addNumber(3);
+	test.addNumber(4);
+	test.addNumber(5);
 	test.fillVector();
 	test.displayVector();
 

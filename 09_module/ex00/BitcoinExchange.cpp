@@ -88,22 +88,21 @@ void BitcoinExchange::parseAndMath(std::string date, std::string bitcoin_nb)
 	
 }
 
-
-
 void BitcoinExchange::execute()
 {
 	std::string line , date, value;
 	std::getline(_file_input, line);
 	while(std::getline(_file_input, line))
 	{
+		
 		std::stringstream ss(line);
 		std::getline(ss, date, '|');
 		std::getline(ss, line, ' ');
 		std::getline(ss, value, ' ');
 		parseAndMath(date, value);
+		date.clear();
+		value.clear();
 	}
-	//for(std::map<time_t, float>::iterator it = _data_map.begin(); it != _data_map.end(); it++)
-	//	std::cout << "date = " << it->first << "  value = " << it->second << "\n";
 }
 
 BitcoinExchange::~BitcoinExchange()
