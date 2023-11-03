@@ -66,26 +66,45 @@ float BitcoinExchange::checkValideNumber(std::string bitcoin_nb)
 		throw Error("Error: too large a number.");
 	return (result);
 }
+void BitcoinExchange::checkValideFormat(std::string line_to_check)
+{
+	size_t i = 0;
+	int count = 0;
+
+	while(std::isdigit(line_to_check[i]) || line_to_check[i] == '-')
+		if(line_to_check[i++] == '-')
+			count++;
+	if(count != 2)
+		throw Error("Error: wrong date format");
+
+	count = 0;
+	if(std::strncmp(&line_to_check[i], " | ", 3))
+		throw Error("Error: wrong format");
+	i += 3;
+
+	while(std::isdigit(line_to_check[i]) || line_to_check[i] == '.' || line_to_check[i] == '-')
+	{
+		if(line_to_check[i] == '.')
+			count++;
+		if(line_to_check[i++] == '-')
+			throw Error("Error: not a positive number.");
+	}
+	if(count > 1)
+		throw Error("Error: Number Format");
+	if(i != line_to_check.size())
+		throw Error("Error: wrong format");
+}
 void BitcoinExchange::parseAndMath(std::string date, std::string bitcoin_nb)
 {
-	//std::cout << date << " size = "<< date.size() << std::endl;
-	try
-	{
-		time_t valide_date = checkValideDate(date);
-		float valide_bitcoin_nb = checkValideNumber(bitcoin_nb);
-		std::map<time_t, float>::iterator it;
-		it = _data_map.lower_bound(valide_date);
-		if (it == _data_map.begin() && it->first != valide_date)
-				throw Error("Error: no info for " + date + "this date is to old");
-		else if (it->first != valide_date)
-			it--;
-		std::cout << date << "=> " << bitcoin_nb << " = " << it->second * valide_bitcoin_nb << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << '\n';
-	}
-	
+	time_t valide_date = checkValideDate(date);
+	float valide_bitcoin_nb = checkValideNumber(bitcoin_nb);
+	std::map<time_t, float>::iterator it;
+	it = _data_map.lower_bound(valide_date);
+	if (it == _data_map.begin() && it->first != valide_date)
+			throw Error("Error: no info for " + date + "this date is to old");
+	else if (it->first != valide_date)
+		it--;
+	std::cout << date << "=> " << bitcoin_nb << " = " << it->second * valide_bitcoin_nb << std::endl;
 }
 
 void BitcoinExchange::execute()
@@ -94,14 +113,21 @@ void BitcoinExchange::execute()
 	std::getline(_file_input, line);
 	while(std::getline(_file_input, line))
 	{
-		
-		std::stringstream ss(line);
-		std::getline(ss, date, '|');
-		std::getline(ss, line, ' ');
-		std::getline(ss, value, ' ');
-		parseAndMath(date, value);
-		date.clear();
-		value.clear();
+		try
+		{
+			checkValideFormat(line);
+			std::stringstream ss(line);
+			std::getline(ss, date, '|');
+			std::getline(ss, line, ' ');
+			std::getline(ss, value, ' ');
+			parseAndMath(date, value);
+			date.clear();
+			value.clear();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 }
 

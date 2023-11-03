@@ -11,6 +11,7 @@
 #include <fstream>
 #include <map>
 #include <cstdlib>
+#include <cstring>
 class BitcoinExchange
 {
     public:
@@ -37,6 +38,7 @@ class BitcoinExchange
 		void storeData(std::string data, std::string bitcoin_value);
 		void parseAndMath(std::string date, std::string bitcoin_nb);
 		float checkValideNumber(std::string bitcoin_nb);
+		void  checkValideFormat(std::string line_to_check);
 		void execute();
     private:
 		BitcoinExchange();
