@@ -4,13 +4,11 @@
 #pragma once
 
 #include <iostream>
-#include <map>
 #include <ctime>
 #include <iomanip>
 #include <sstream>
 #include <fstream>
 #include <map>
-#include <cstdlib>
 #include <cstring>
 class BitcoinExchange
 {

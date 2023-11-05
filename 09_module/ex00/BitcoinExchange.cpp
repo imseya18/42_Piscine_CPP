@@ -18,6 +18,7 @@ BitcoinExchange &     BitcoinExchange::operator=(BitcoinExchange const & rhs)
 {
 	(void) rhs;
 	return *this;
+  
 }
 
 void BitcoinExchange::storeFile()
@@ -30,8 +31,6 @@ void BitcoinExchange::storeFile()
 		if(std::getline(ss, date, ',') && std::getline(ss, value, '\n'))
 			storeData(date, value);
 	}
-	//for(std::map<time_t, float>::iterator it = _data_map.begin(); it != _data_map.end(); it++)
-	//	std::cout << "date = " << it->first << "  value = " << it->second << "\n";
 }
 
 void BitcoinExchange::storeData(std::string str_date, std::string bitcoin_value)
