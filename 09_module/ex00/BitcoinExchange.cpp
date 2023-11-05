@@ -132,9 +132,9 @@ void BitcoinExchange::execute()
 
 BitcoinExchange::~BitcoinExchange()
 {
-	if(_file_input.is_open())
+	if(_file_input.is_open() == true)
 		_file_input.close();
-	if(_file_database.is_open())
+	if(_file_database.is_open() == true)
 		_file_database.close();
 }
 
