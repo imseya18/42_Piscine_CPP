@@ -93,6 +93,7 @@ void BitcoinExchange::checkValideFormat(std::string line_to_check)
 	if(i != line_to_check.size())
 		throw Error("Error: wrong format");
 }
+
 void BitcoinExchange::parseAndMath(std::string date, std::string bitcoin_nb)
 {
 	time_t valide_date = checkValideDate(date);

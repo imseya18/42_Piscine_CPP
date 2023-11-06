@@ -7,10 +7,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <ctime>
+#include <sys/time.h>
 class PmergeMe
 {
     public:
-        PmergeMe();
+        PmergeMe(int size);
         PmergeMe(PmergeMe const & src);
         ~PmergeMe();
         PmergeMe &     operator=(PmergeMe const & rhs);
@@ -24,11 +26,14 @@ class PmergeMe
 			private:
 				std::string _msg;
 		};
-
-		std::vector<unsigned int> & fill_vec(char **argv);
+		long int getTime();
+		void	fill_vec(char **argv);
+		void	displayVector();
     private:
+		PmergeMe();
 		std::vector<unsigned int> vec_list;
-
+		long int start_time;
+		long int end_time;
 };
 
 #endif
