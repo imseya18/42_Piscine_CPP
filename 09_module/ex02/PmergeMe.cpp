@@ -57,9 +57,9 @@ void PmergeMe::fill_vec(char **argv)
 	}
 }
 
-void	PmergeMe::displayVector()
+void	PmergeMe::displayVector(std::vector<unsigned int> & vec)
 {
-	for (std::vector<unsigned int>::iterator it = vec_list.begin(); it != vec_list.end(); it++)
+	for (std::vector<unsigned int>::iterator it = vec.begin(); it != vec.end(); it++)
 		std::cout << " " << *it;
 	std::cout << std::endl;
 }
@@ -72,4 +72,19 @@ int PmergeMe::getResultTime()
 std::vector<unsigned int> PmergeMe::getVec()
 {
 	return this->vec_list;
+}
+
+void PmergeMe::fillDoubleVec()
+{
+	for(size_t i = 0; i < vec_list.size();)
+	{
+		std::vector<unsigned int> temp;
+		for(size_t j = 0; j < 4 && i < vec_list.size(); i++, j++)
+		{
+			temp.push_back(vec_list[i]);
+		}
+		double_vec.push_back(temp);
+	}
+	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
+		displayVector(*it);
 }

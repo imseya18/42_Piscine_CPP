@@ -29,11 +29,13 @@ class PmergeMe
 		};
 		long int getTime();
 		void	fill_vec(char **argv);
-		void	displayVector();
+		void	displayVector(std::vector<unsigned int> & vec);
 		int		getResultTime();
 		std::vector<unsigned int> getVec();
+		void	fillDoubleVec();
     private:
 		PmergeMe();
+		std::vector<std::vector<unsigned int> > double_vec;
 		std::vector<unsigned int> vec_list;
 		std::vector<unsigned int> unsorted_vec_list2;
 		long int _start_time;
