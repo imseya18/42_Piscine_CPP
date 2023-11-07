@@ -9,6 +9,7 @@
 #include <vector>
 #include <ctime>
 #include <sys/time.h>
+#include <algorithm>
 class PmergeMe
 {
     public:
@@ -29,11 +30,14 @@ class PmergeMe
 		long int getTime();
 		void	fill_vec(char **argv);
 		void	displayVector();
+		int		getResultTime();
+		std::vector<unsigned int> getVec();
     private:
 		PmergeMe();
 		std::vector<unsigned int> vec_list;
-		long int start_time;
-		long int end_time;
+		std::vector<unsigned int> unsorted_vec_list2;
+		long int _start_time;
+		long int _end_time;
 };
 
 #endif

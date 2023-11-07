@@ -40,7 +40,7 @@ long int PmergeMe::getTime()
 {
 	struct timeval tp;
 	gettimeofday(&tp, NULL);
-	long int time = (tp.tv_sec * 1000 + tp.tv_usec / 1000); 
+	long int time = (tp.tv_sec * 1000 + tp.tv_usec / 1000);
 	return time;
 }
 
@@ -55,11 +55,21 @@ void PmergeMe::fill_vec(char **argv)
 			throw Error("Value over MAX_INT");
 		vec_list.push_back(temp);
 	}
-	displayVector();
 }
 
 void	PmergeMe::displayVector()
 {
 	for (std::vector<unsigned int>::iterator it = vec_list.begin(); it != vec_list.end(); it++)
-		std::cout << *it << std::endl;
+		std::cout << " " << *it;
+	std::cout << std::endl;
+}
+
+int PmergeMe::getResultTime()
+{
+	return (this->_end_time - this->_start_time);
+}
+
+std::vector<unsigned int> PmergeMe::getVec()
+{
+	return this->vec_list;
 }
