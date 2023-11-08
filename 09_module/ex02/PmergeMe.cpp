@@ -111,22 +111,28 @@ void PmergeMe::SortDoubleVec()
 {
 	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
 		insertSort(*it);
-	//for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
-	//	displayVector(*it);
+	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
+		displayVector(*it);
 }
 
 void PmergeMe::mergeSort()
 {
 	size_t tmp_size = this->double_vec.size();
-	//while (tmp_size > 1)
-	//{
+	int index = 0;
+	while (tmp_size > 0)
+	{
 		for(size_t i = 1; i < tmp_size; i++)
 		{
 			for(int j = 0; j < 4; j++)
-				double_vec[i - 1].push_back(double_vec[i][j]);
+				double_vec[index].push_back(double_vec[i][j]);
 			double_vec[i].clear();
+			if((i + 1) % 2 == 0)
+				index++;
+				
 		}
+		tmp_size = index;
+		index = 0;
+	}
 	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
 		displayVector(*it);
-	//}
 }
