@@ -85,6 +85,48 @@ void PmergeMe::fillDoubleVec()
 		}
 		double_vec.push_back(temp);
 	}
+	//for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
+	//	displayVector(*it);
+}
+
+void PmergeMe::insertSort(std::vector<unsigned int> &vec)
+{
+	int j; 
+	unsigned int key;
+	for(size_t i = 1; i < vec.size(); i++)
+	{
+		j = i - 1;
+		key = vec[i];
+
+		while(j >= 0 && vec[j] > key)
+		{
+			vec[j + 1] = vec[j];
+			j--;
+		}
+		vec[j + 1] = key;
+	}
+}
+
+void PmergeMe::SortDoubleVec()
+{
+	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
+		insertSort(*it);
+	//for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
+	//	displayVector(*it);
+}
+
+void PmergeMe::mergeSort()
+{
+	size_t tmp_size = this->double_vec.size();
+	//while (tmp_size > 1)
+	//{
+		for(size_t i = 1; i < tmp_size; i++)
+		{
+			for(int j = 0; j < 4; j++)
+				double_vec[i - 1].push_back(double_vec[i][j]);
+			double_vec[i].clear();
+		}
 	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
 		displayVector(*it);
+	//}
 }

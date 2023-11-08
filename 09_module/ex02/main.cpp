@@ -25,6 +25,8 @@ int main(int argc, char **argv)
 	PmergeMe test(argc - 1);
 	test.fill_vec(argv);
 	test.fillDoubleVec();
+	test.SortDoubleVec();
+	test.mergeSort();
 	//int element[] = {1,4,12,2,222222222};
 	//std::vector< unsigned int> test2(element, element + (sizeof(element) / sizeof(element[0])));
 	//std::vector< unsigned int> test3;

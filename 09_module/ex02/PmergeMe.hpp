@@ -33,6 +33,9 @@ class PmergeMe
 		int		getResultTime();
 		std::vector<unsigned int> getVec();
 		void	fillDoubleVec();
+		void 	insertSort(std::vector<unsigned int> &vec);
+		void	SortDoubleVec();
+		void	mergeSort();
     private:
 		PmergeMe();
 		std::vector<std::vector<unsigned int> > double_vec;
