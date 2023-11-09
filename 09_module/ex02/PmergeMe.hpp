@@ -28,6 +28,7 @@ class PmergeMe
 			private:
 				std::string _msg;
 		};
+		void		FordJohnsonVec();
 		long int	getTime();
 		void 	vec_genesis();
 		void	fill_vec(char **argv);

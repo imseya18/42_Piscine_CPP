@@ -36,6 +36,13 @@ const char* PmergeMe::Error::what() const throw()
 	return (_msg.c_str());
 }
 
+void PmergeMe::FordJohnsonVec()
+{
+	fillDoubleVec();
+	SortDoubleVec();
+	mergeSort();
+}
+
 long int PmergeMe::getTime()
 {
 	struct timeval tp;
@@ -46,7 +53,16 @@ long int PmergeMe::getTime()
 
 void PmergeMe::vec_genesis()
 {
-	
+	std::cout << "Before: ";
+	displayVector(this->vec_list);
+	this->_start_time = getTime();
+	FordJohnsonVec();
+	this->_end_time = getTime();
+	std::cout << "After: ";
+	displayVector(this->double_vec[0]);
+	std::cout << "Time to process a range of " << this->vec_list.size() << " elements with std::vector: " 
+	<< _end_time - _start_time << " ms" << std::endl;
+
 }
 
 void PmergeMe::fill_vec(char **argv)

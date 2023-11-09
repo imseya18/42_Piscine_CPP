@@ -24,8 +24,5 @@ int main(int argc, char **argv)
 	}
 	PmergeMe test(argc - 1);
 	test.fill_vec(argv);
-	//test.vec_genesis();
-	test.fillDoubleVec();
-	test.SortDoubleVec();
-	test.mergeSort();
+	test.vec_genesis();
 }
