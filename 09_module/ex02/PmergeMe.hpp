@@ -10,6 +10,7 @@
 #include <ctime>
 #include <sys/time.h>
 #include <algorithm>
+
 class PmergeMe
 {
     public:
@@ -27,7 +28,8 @@ class PmergeMe
 			private:
 				std::string _msg;
 		};
-		long int getTime();
+		long int	getTime();
+		void 	vec_genesis();
 		void	fill_vec(char **argv);
 		void	displayVector(std::vector<unsigned int> & vec);
 		int		getResultTime();

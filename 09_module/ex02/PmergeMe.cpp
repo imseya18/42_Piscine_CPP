@@ -44,6 +44,11 @@ long int PmergeMe::getTime()
 	return time;
 }
 
+void PmergeMe::vec_genesis()
+{
+	
+}
+
 void PmergeMe::fill_vec(char **argv)
 {
 	unsigned int temp;
@@ -111,28 +116,25 @@ void PmergeMe::SortDoubleVec()
 {
 	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
 		insertSort(*it);
-	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
-		displayVector(*it);
 }
 
 void PmergeMe::mergeSort()
 {
 	size_t tmp_size = this->double_vec.size();
 	int index = 0;
-	while (tmp_size > 0)
+	while (tmp_size > 1)
 	{
-		for(size_t i = 1; i < tmp_size; i++)
+		for(size_t i = 1; i <= tmp_size; i++)
 		{
-			for(int j = 0; j < 4; j++)
+			for(size_t j = 0; j < double_vec[i].size(); j++)
 				double_vec[index].push_back(double_vec[i][j]);
 			double_vec[i].clear();
 			if((i + 1) % 2 == 0)
 				index++;
-				
 		}
 		tmp_size = index;
 		index = 0;
+		for(size_t i = 0; i <= tmp_size; i++)
+			insertSort(this->double_vec[i]);
 	}
-	for(std::vector<std::vector<unsigned int> >::iterator it = double_vec.begin(); it != double_vec.end(); it++)
-		displayVector(*it);
 }
