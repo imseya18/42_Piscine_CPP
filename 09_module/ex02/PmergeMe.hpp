@@ -10,7 +10,7 @@
 #include <ctime>
 #include <sys/time.h>
 #include <algorithm>
-
+#include <deque>
 class PmergeMe
 {
     public:
@@ -28,19 +28,27 @@ class PmergeMe
 			private:
 				std::string _msg;
 		};
-		void		FordJohnsonVec();
-		long int	getTime();
-		void 	vec_genesis();
-		void	fill_vec(char **argv);
-		void	displayVector(std::vector<unsigned int> & vec);
-		int		getResultTime();
-		std::vector<unsigned int> getVec();
-		void	fillDoubleVec();
-		void 	insertSort(std::vector<unsigned int> &vec);
-		void	SortDoubleVec();
-		void	mergeSort();
+		void						FordJohnsonVec();
+		void 						FordJohnsonDeque();
+		long int					getTime();
+		void 						vec_genesis();
+		void						fill_vec(char **argv);
+		void						displayVector(std::vector<unsigned int> & vec);
+		void						displayDeque(std::deque<unsigned int> & deq);
+		int							getResultTime();
+		std::vector<unsigned int> 	getVec();
+		void						fillDoubleVec();
+		void 						insertSort(std::vector<unsigned int> &vec);
+		void 						insertSortDeque(std::deque<unsigned int> &deq);
+		void						SortDoubleVec();
+		void 						SortDoubleDeque();
+		void						mergeSort();
+		void 						mergeSortDeque();
+		void 						fillTabqueue();
+
     private:
 		PmergeMe();
+		std::deque<std::deque<unsigned int> > deque_tab;
 		std::vector<std::vector<unsigned int> > double_vec;
 		std::vector<unsigned int> vec_list;
 		std::vector<unsigned int> unsorted_vec_list2;

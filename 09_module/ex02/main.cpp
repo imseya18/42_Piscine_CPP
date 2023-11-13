@@ -22,7 +22,14 @@ int main(int argc, char **argv)
 		std::cout << "Error: Invalid argument" << std::endl;
 		return 0;
 	}
-	PmergeMe test(argc - 1);
-	test.fill_vec(argv);
-	test.vec_genesis();
+	try
+	{
+		PmergeMe test(argc - 1);
+		test.fill_vec(argv);
+		test.vec_genesis();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
