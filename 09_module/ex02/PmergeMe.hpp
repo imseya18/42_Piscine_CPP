@@ -11,6 +11,8 @@
 #include <sys/time.h>
 #include <algorithm>
 #include <deque>
+#include <iomanip>
+
 class PmergeMe
 {
     public:
@@ -30,7 +32,7 @@ class PmergeMe
 		};
 		void						FordJohnsonVec();
 		void 						FordJohnsonDeque();
-		long int					getTime();
+		double					getTime();
 		void 						vec_genesis();
 		void						fill_vec(char **argv);
 		void						displayVector(std::vector<unsigned int> & vec);
@@ -52,8 +54,8 @@ class PmergeMe
 		std::vector<std::vector<unsigned int> > double_vec;
 		std::vector<unsigned int> vec_list;
 		std::vector<unsigned int> unsorted_vec_list2;
-		long int _start_time;
-		long int _end_time;
+		double _start_time;
+		double _end_time;
 };
 
 #endif

@@ -49,11 +49,11 @@ void PmergeMe::FordJohnsonDeque()
 	mergeSortDeque();
 }
 
-long int PmergeMe::getTime()
+double PmergeMe::getTime()
 {
 	struct timeval tp;
 	gettimeofday(&tp, NULL);
-	long int time = (tp.tv_sec * 1000000 + tp.tv_usec);
+	double time = (tp.tv_sec * 1000000 + tp.tv_usec);
 	return time;
 }
 
